@@ -6,10 +6,18 @@
     <title>User Profile</title>
 </head>
 <body>
+    <form method="GET">
+        <label for="tag">Filter by tag:</label>
+        <input type="text" name="tag" value="{{ tag_filter }}">
+        <button type="submit">Filter</button>
+    </form>
+    
     <ul>
         {% for image in images %}
         <li>
-            <img width="25%" src="{{ image.img.url }}">
+            <img width="25%" src="{{ image.image.url }}">
+            <p>Tags: {{ image.tags }}</p>
+            <a href="gallery/list/{{ image.id }}">Details</a>
         </li>
         {% endfor %}
     </ul>
